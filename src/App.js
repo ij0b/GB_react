@@ -1,26 +1,36 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
 import './App.css';
-import { Message } from './components/Message/Message';
+import { Chat } from './components/Chat/Chat';
 
-const messageText = 'Текст пропса';
+const messageRobot = { author: 'robot', text: 'Текст робота 123456789 123456789 123456789 123456789 123456789 123456789' };
 
 function App() {
+  const [messageList, setMessageList] = useState([]);
+
+  useEffect(() => {
+    if (messageList.length > 0) {
+      if (messageList[messageList.length - 1].author === 'user') {
+        setMessageList([...messageList, messageRobot]);
+      }
+    }
+  }, [messageList]);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Message propMessage={messageText} />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className='Chat'>
+          {messageList.map((e, index) => (
+            <div key={index} className='Chat-message'>
+              <div className='Chat-message-author'>
+                {e.author}
+              </div>
+              <div>
+                {e.text}
+              </div>
+            </div>
+          ))}
+        </div>
+        <Chat messageList={messageList} setMessageList={setMessageList} />
       </header>
     </div>
   );

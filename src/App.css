@@ -56,3 +56,27 @@
   font-weight:700;
   padding:5px 10px;
 }
+
+.Chat{
+  background:#fff;
+  max-width:750px;
+  width:100%;
+  overflow:auto;
+  height:504px;
+}
+.Chat-message{
+  padding:20px;
+  color:#282c34;
+  font-weight:700;
+  text-align:left;
+}
+.Chat-message:nth-child(2n){
+  text-align:right;
+  background:rgba(0,0,0,0.1);
+}
+.Chat-message-author{
+  border-radius:50%;
+  border:1px solid rgba(0,200,0,1);
+  display: inline-block;
+  padding: 0 30px;
+}
