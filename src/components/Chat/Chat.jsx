@@ -1,15 +1,16 @@
-import React from 'react'
+import React from 'react';
+import { AUTHORS } from '../../utils/constants';
 
 export const Chat = ({ messageList, setMessageList }) => {
     let currentMessageList;
     const handleChange = (e) => {
-        currentMessageList = [...messageList, { author: 'user', text: e.target.value }];
+        currentMessageList = { author: AUTHORS.user, text: e.target.value };
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (currentMessageList !== undefined) {
-            setMessageList(currentMessageList);
+            setMessageList([...messageList, currentMessageList]);
         }
         e.target.reset();
     }

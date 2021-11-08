@@ -1,17 +1,22 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import { Chat } from './components/Chat/Chat';
+import { AUTHORS } from './utils/constants';
 
-const messageRobot = { author: 'robot', text: 'Текст робота 123456789 123456789 123456789 123456789 123456789 123456789' };
+const messageRobot = { author: AUTHORS.bot, text: 'Текст робота 123456789 123456789 123456789 123456789 123456789 123456789' };
 
 function App() {
   const [messageList, setMessageList] = useState([]);
 
   useEffect(() => {
-    if (messageList.length > 0) {
-      if (messageList[messageList.length - 1].author === 'user') {
+    if (
+      messageList.length
+      && messageList[messageList.length - 1].author === AUTHORS.user
+    ) {
+      const botMessageTimeout = setTimeout(() => {
         setMessageList([...messageList, messageRobot]);
-      }
+      }, 1000);
+      return () => clearTimeout(botMessageTimeout);
     }
   }, [messageList]);
 
