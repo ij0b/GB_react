@@ -1,0 +1,72 @@
+.App {
+  text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content:space-around;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  flex-wrap:wrap;
+}
+
+@keyframes App-link-shake {
+  0% {
+    transform: rotate(-30deg);
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+  100% {
+    transform: rotate(-30deg);
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.message{
+  font-size:30px;
+  border:2px solid #fff;
+  font-weight:700;
+  padding:5px 10px;
+}
+
+.Chat{
+  background:#fff;
+  max-width:750px;
+  width:100%;
+  overflow:auto;
+  height:504px;
+  margin:0 0 10px;
+}
+.Chat-message{
+  padding:20px;
+  color:#282c34;
+  font-weight:700;
+  text-align:left;
+}
+.Chat-message:nth-child(2n){
+  text-align:right;
+  background:rgba(0,0,0,0.1);
+}
+.Chat-message-author{
+  border-radius:50%;
+  border:1px solid rgba(0,200,0,1);
+  display: inline-block;
+  padding: 0 30px;
+}
+.Chat-textarea{
+  width:500px;
+  vertical-align:middle;
+  margin:0 10px 0 0;
+}
+.Chat-fields{
+  align-self:center
+}
